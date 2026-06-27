@@ -1,4 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 from typing import List
 
@@ -16,11 +18,11 @@ app = FastAPI(
     version="1.0.0"
 )
 
-from fastapi.responses import RedirectResponse
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/", include_in_schema=False)
 def root():
-    return RedirectResponse(url="/docs")
+    return FileResponse("static/index.html")
 
 @app.post("/users", response_model=schemas.User, status_code=status.HTTP_201_CREATED)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):

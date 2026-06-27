@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>User Directory</h1>
+            <p>Manage your users efficiently</p>
+        </header>
+        
+        <main>
+            <section class="glass-panel form-section">
+                <h2>Add New User</h2>
+                <form id="userForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" required min="0" max="120" placeholder="30">
+                    </div>
+                    <button type="submit" class="btn-primary">Add User</button>
+                </form>
+            </section>
+
+            <section class="glass-panel list-section">
+                <h2>User List</h2>
+                <div class="user-list" id="userList">
+                    <!-- Users will be injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>
